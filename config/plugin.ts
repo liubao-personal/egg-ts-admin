@@ -14,6 +14,17 @@ const plugin: EggPlugin = {
     enable: true,
     package: 'egg-redis',
   },
+  // use 自定义校验
+  validate: {
+    enable: true,
+    package: 'egg-validate',
+  },
+  // use jwt token
+  jwt: {
+    enable: true,
+    package: 'egg-jwt',
+  },
+
 };
 
 export default plugin;

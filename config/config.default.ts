@@ -23,8 +23,17 @@ export default (appInfo: EggAppInfo) => {
     'req',
   ];
 
+  // 参数校验
+  config.validate = {
+    convert: true, // 将原始参数转换为特定类型，默认为false
+    validateRoot: false, // 是否验证传入的值必须是一个对象，默认为false
+  };
+
   // add your special config in here
   const bizConfig = {
+    jwt: {
+      secret: process.env.JWT_SECRET,
+    },
     mongoose: {
       client: {
         url: process.env.MONGODBURL,
