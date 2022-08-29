@@ -21,3 +21,5 @@ config/**/*.map
 package-lock.json
 typings
 .github
+.env
+*.d.ts

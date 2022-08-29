@@ -8,10 +8,10 @@
     "declarations": true
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-ts-admin",
+    "start": "egg-scripts start --port=7005 --daemon --title=egg-server-ts-admin",
     "stop": "egg-scripts stop --title=egg-server-ts-admin",
-    "dev": "egg-bin dev",
-    "debug": "egg-bin debug",
+    "dev": "egg-bin dev --port=7005",
+    "debug": "egg-bin debug --port=7005",
     "test-local": "egg-bin test",
     "test": "npm run lint -- --fix && npm run test-local",
     "cov": "egg-bin cov",
@@ -22,8 +22,12 @@
     "clean": "ets clean"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "egg": "^2.6.1",
-    "egg-scripts": "^2.6.0"
+    "egg-mongoose": "^3.3.1",
+    "egg-redis": "^2.4.0",
+    "egg-scripts": "^2.6.0",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.40",
