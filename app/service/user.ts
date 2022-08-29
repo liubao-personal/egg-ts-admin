@@ -1,4 +1,4 @@
-const Service = require('egg').Service;
+import { Service } from 'egg';
 
 class UserService extends Service {
   // 新增or更新数据

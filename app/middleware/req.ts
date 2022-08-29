@@ -11,10 +11,12 @@ export default function Exception(): any {
         ctx.logger.info(Object.keys(ctx.request.body).length ? `\n请求体为:${JSON.stringify(ctx.request.body)}` : '', `\n响应体为:${JSON.stringify(ctx.response.body)}\n`);
       }
     } catch (err: any) {
-      if (err.code && ctx.app.config.env === 'local') return  ctx.body = JSON.stringify({
-        code: err.errorCode || 500,
-        err,
-      });
+      if (err.code && ctx.app.config.env === 'local') {
+        return JSON.stringify({
+          code: err.errorCode || 500,
+          err,
+        });
+      }
       // 所有的异常都在 app 上触发一个 error 事件，框架会记录一条错误日志
       ctx.app.emit('error', err, ctx);
       const status = err.status || 500;

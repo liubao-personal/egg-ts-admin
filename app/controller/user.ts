@@ -2,7 +2,7 @@ import BaseController from './base';
 
 export default class UserController extends BaseController {
   public async login() {
-
+    this.success({ message: 'ok' });
   }
 
   public async save() {

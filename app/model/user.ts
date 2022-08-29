@@ -1,28 +1,29 @@
 'use strict';
 import { v4 as uuidv4 } from 'uuid';
+import { fieldEncryption as mongooseFieldEncryption } from 'mongoose-field-encryption';
 
 /**
  * 用户表
- * @param app
- * @return {Model<Document>}
+ * @param app app应用
+ * @return {Model<Document>} 用户表模型
  */
 module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
-  const mongooseFieldEncryption = require('mongoose-field-encryption').fieldEncryption;
+  // const mongooseFieldEncryption = require('mongoose-field-encryption').fieldEncryption;
   const UserSchema = new Schema({
     name: {
       type: String,
-      unique: true
+      unique: true,
     },
     userId: {
       type: String,
       unique: true,
-      default: () => uuidv4()
+      default: () => uuidv4(),
     },
     mobile: {
       type: String,
-      unique: true
+      unique: true,
     },
     password: {
       type: String,

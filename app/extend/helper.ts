@@ -5,7 +5,7 @@ import qs from 'querystring';
 /**
  * 格式化时间
  */
-export const now = function () {
+export const now = function() {
   return moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
 };
 
@@ -37,17 +37,17 @@ export default {
 
   /**
    * 处理业务code码对应的业务信息
-   * @param code
+   * @param code 业务code码
    */
   getErrorMessageByCode(code: number) {
     switch (code) {
       case 401:
-        return '未授权'
+        return '未授权';
       case 403:
-        return '禁止访问'
+        return '禁止访问';
       default:
-        return
+        return;
     }
-  }
+  },
 
 };
