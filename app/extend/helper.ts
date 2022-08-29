@@ -46,7 +46,7 @@ export default {
       case 403:
         return '禁止访问';
       default:
-        return;
+        return 'success';
     }
   },
 

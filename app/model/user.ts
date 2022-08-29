@@ -7,7 +7,7 @@ import { fieldEncryption as mongooseFieldEncryption } from 'mongoose-field-encry
  * @param app app应用
  * @return {Model<Document>} 用户表模型
  */
-module.exports = app => {
+export default app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
   // const mongooseFieldEncryption = require('mongoose-field-encryption').fieldEncryption;

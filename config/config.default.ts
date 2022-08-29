@@ -1,5 +1,6 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
 import dotenv from 'dotenv'; // 引入环境变量
+import path from 'path';
 
 dotenv.config();
 
@@ -22,6 +23,14 @@ export default (appInfo: EggAppInfo) => {
   config.middleware = [
     'req',
   ];
+
+  // 静态资源配置
+  config.static = {
+    prefix: '/public/',
+    dir: [ path.join(appInfo.baseDir, 'public') ], // 多静态文件入口
+    maxAge: 31536000,
+  };
+
 
   // 参数校验
   config.validate = {

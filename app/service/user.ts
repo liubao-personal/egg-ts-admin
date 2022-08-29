@@ -1,6 +1,6 @@
 import { Service } from 'egg';
 
-class UserService extends Service {
+export default class UserService extends Service {
   // 新增or更新数据
   async save(params) {
     const User = this.ctx.state.user || {};
@@ -30,5 +30,3 @@ class UserService extends Service {
     return userModel.findOne({ mobile: SearchWith.mobile, password: params.password }, { password: 0, roleIdList: 0 });
   }
 }
-
-module.exports = UserService;
