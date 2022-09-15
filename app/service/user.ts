@@ -27,6 +27,11 @@ export default class UserService extends Service {
     const userModel = this.ctx.model.User;
     const SearchWith = new userModel({ mobile });
     SearchWith.encryptFieldsSync();
-    return userModel.findOne({ mobile: SearchWith.mobile, password: params.password }, { password: 0, roleIdList: 0 });
+    return userModel.findOne({
+      $or: [{ mobile: SearchWith.mobile, password: params.password }, {
+        email: params.email,
+        password: params.password,
+      }],
+    }, { password: 0, roleIdList: 0 });
   }
 }
