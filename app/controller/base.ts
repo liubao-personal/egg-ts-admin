@@ -57,7 +57,7 @@ export default abstract class BaseController extends Controller {
   protected failure(op?: ResOp): void {
     this.ctx.set('Content-Type', 'application/json');
     this.ctx.body = {
-      data: op?.data ?? null,
+      data: op?.data,
       code: op?.code ?? 500,
       message: op?.code ? this.ctx.helper.getErrorMessageByCode(Number(`${op!.code}`)) || op?.message || 'unknown error' : op?.message || 'success',
     };

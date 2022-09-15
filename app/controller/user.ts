@@ -16,7 +16,7 @@ export default class UserController extends BaseController {
     body.password = helper.encryptPwd(body.password);
 
     const result = await service.user.login(body);
-    if (!result) return ctx.failure('账号或密码错误');
+    if (!result) return this.failure({ message: '账号或密码错误' });
     const token = app.jwt.sign(result._doc, jwtConfig.secret, { expiresIn: '1d' }); // 生成token,有效期1天
     const { avatar, name, mobile, userId } = result
     this.success({ data: { avatar, name, mobile, userId, token } });
